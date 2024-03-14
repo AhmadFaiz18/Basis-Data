@@ -1,0 +1,77 @@
+MariaDB [ti05]> INSERT INTO jabatan VALUES
+    -> ('','Manager'),
+    -> ('','Direktur'),
+    -> ('','Staff');
+Query OK, 3 rows affected, 3 warnings (0.059 sec)
+Records: 3  Duplicates: 0  Warnings: 3
+
+//Ngecek From jabatan
+MariaDB [ti05]> SELECT * FROM jabatan;
++----+----------+
+| id | nama     |
++----+----------+
+|  2 | Direktur |
+|  1 | Manager  |
+|  3 | Staff    |
++----+----------+
+3 rows in set (0.001 sec)
+
+//Nambahkan LIST
+MariaDB [ti05]> INSERT INTO jabatan VALUES
+    -> ('','Supervisor');
+Query OK, 1 row affected, 1 warning (0.003 sec)
+
+MariaDB [ti05]> SELECT * FROM jabatan;
++----+------------+
+| id | nama       |
++----+------------+
+|  2 | Direktur   |
+|  1 | Manager    |
+|  3 | Staff      |
+|  4 | Supervisor |
++----+------------+
+4 rows in set (0.001 sec)
+
+//
+MariaDB [ti05]> INSERT INTO Pegawai
+    -> (nip,nama,email,tgl_lahir,jabatan_id)
+    -> VALUES
+    -> ('2002','faiz','faiz@gmail.com','2005-05-18',1);
+Query OK, 1 row affected (0.009 sec)
+
+MariaDB [ti05]> SELECT * FROM pegawai;
++----+------+------+----------------+------------+------------+
+| id | nip  | nama | email          | tgl_lahir  | jabatan_id |
++----+------+------+----------------+------------+------------+
+|  1 | 2002 | faiz | faiz@gmail.com | 2005-05-18 |          1 |
++----+------+------+----------------+------------+------------+
+1 row in set (0.001 sec)
+
+//Mengganti NAMA Jabatan
+MariaDB [ti05]> UPDATE jabatan SET nama = 'Kepala gudang'
+    -> WHERE id = 4;
+Query OK, 1 row affected (0.003 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+MariaDB [ti05]> SELECT * FROM jabatan;
++----+---------------+
+| id | nama          |
++----+---------------+
+|  2 | Direktur      |
+|  4 | Kepala gudang |
+|  1 | Manager       |
+|  3 | Staff         |
++----+---------------+
+4 rows in set (0.001 sec)
+
+//Menghapus Jabatan
+MariaDB [ti05]> DELETE FROM jabatan WHERE id = 4;
+Query OK, 1 row affected (0.010 sec)
+
+MariaDB [ti05]> SELECT * FROM jabatan;
++----+----------+
+| id | nama     |
++----+----------+
+|  2 | Direktur |
+|  1 | Manager  |
+|  3 | Staff    |
+3 rows in set (0.000 sec)
