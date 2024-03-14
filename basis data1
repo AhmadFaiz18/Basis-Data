@@ -1,0 +1,12 @@
+Pertemuan pertama
+// query imi untuk melihat database
+SHOW DATABASE;
+
+//membuat database
+CREATE DATABASES TI05;
+
+//menghapus database
+DROP DATABASE TIO5;
+
+
+
